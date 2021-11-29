@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nowu-web-deployment
+  labels:
+    app: nowu-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nowu-web
+  template:
+    metadata:
+      labels:
+        app: nowu-web
+    spec:
+      containers:
+        - name: nowu-web
+          image: ghcr.io/now-u/now-u-campaigns/web:v3.2.0.2
+          ports:
+            - containerPort: 80
